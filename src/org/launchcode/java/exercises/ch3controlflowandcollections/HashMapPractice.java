@@ -16,28 +16,23 @@ public class HashMapPractice {
         int id = 0;
         String name = "";
         do {
-            System.out.println("To Exit, enter negative number");
-            System.out.println("Enter student ID#:");
-            id = input.nextInt();
-            if (id<0) {
-                System.out.println("Roster complete!");
-//                System.out.println(roster);
-                break;
-            }
             System.out.println("Enter student name:");
-            name = input.next();
-            roster.put(id, name);
-//            System.out.println(roster);
-            System.out.println("added, next!");
-        } while (true);
-
+            name = input.nextLine();
+            if (!name.equals("")) {
+                System.out.println("Enter student ID#:");
+                id = input.nextInt();
+                roster.put(id, name);
+                System.out.println("added, next!");
+                input.nextLine();
+            }
+        } while (!name.equals(""));
         input.close();
         return roster;
     }
 
     public static void printRoster(HashMap<Integer,String> roster) {
         for (HashMap.Entry<Integer,String> student : roster.entrySet()) {
-            System.out.println(student.getKey()+" "+ student.getValue());
+            System.out.println("> "+student.getKey()+" "+ student.getValue());
         }
     }
 }
