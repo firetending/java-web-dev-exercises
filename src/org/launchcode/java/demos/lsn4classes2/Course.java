@@ -11,6 +11,21 @@ public class Course {
     //  just the class fields.
 
 
+    public Course(String topic, Teacher instructor, ArrayList<Student> roster) {
+        this.topic = topic;
+        this.instructor = instructor;
+        this.enrolledStudents = roster;
+    }
+
+    @Override
+    public String toString() {
+        return ("Class: "+this.topic+"\n"
+                +"Teacher: "+this.instructor.getLastName()+", "+this.instructor.getFirstName()+"\n"
+                +"# of Students: "+this.enrolledStudents.size()
+        );
+    }
+
+
     // TODO: Add your custom 'equals' method here. Consider which fields should match in order to call two
     //  Course objects equal.
 
