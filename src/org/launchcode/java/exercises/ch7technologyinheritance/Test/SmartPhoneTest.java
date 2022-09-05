@@ -36,18 +36,29 @@ public class SmartPhoneTest {
     @Test
     public void implementsLocationLog() {
         ArrayList<double[]> expectedLog = new ArrayList<>();
+
+        //check that loc was initialized
         expectedLog.add(startLoc);
-        assertTrue(Arrays.equals(startLoc,testPhone.getLocationGPS())); //checks that loc was initialized
+        assertTrue(Arrays.equals(startLoc,testPhone.getLocationGPS()));
+
+        //check that log was initialized
         assertTrue(Arrays.deepEquals(expectedLog.toArray(),testPhone.getLocationLog().toArray()));
-        //checks that log was initialized
-        testPhone.setLocationGPS(loc2); //sets loc which should also update log if new
+
+        //check setting new loc adds it to log
         expectedLog.add(loc2); //add new loc to expected log
+        testPhone.setLocationGPS(loc2); //sets new loc, which should update log
         assertTrue(Arrays.deepEquals(expectedLog.toArray(),testPhone.getLocationLog().toArray())); //check for new loc in log
+
+        //check setting same loc makes no new log entry
         testPhone.setLocationGPS(loc2); //set to same loc, no new log entry
         assertTrue(Arrays.deepEquals(expectedLog.toArray(),testPhone.getLocationLog().toArray())); //check for same expected log
+
+        //check setting new loc again makes new log entry
         testPhone.setLocationGPS(loc3); //sets new loc which should update log
         expectedLog.add(loc3); //add new loc to expected log
         assertTrue(Arrays.deepEquals(expectedLog.toArray(),testPhone.getLocationLog().toArray())); //check for new loc in log
-        testPhone.printLocationLog();
+
+//        //print log just because;
+//        testPhone.printLocationLog();
     }
 }

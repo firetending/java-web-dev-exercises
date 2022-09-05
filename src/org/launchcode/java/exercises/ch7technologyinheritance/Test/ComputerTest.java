@@ -31,5 +31,4 @@ public class ComputerTest {
         testComp.togglePower();
         assertEquals(true,testComp.isPowerOn());
     }
-
 }

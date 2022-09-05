@@ -1,12 +1,19 @@
 package org.launchcode.java.exercises.ch7technologyinheritance.Main;
 
-public class Computer {
+public class Computer extends AbstractEntity {
+    private int uniqueId;
     private int memoryGB;
     private int storageGB;
     private double[] screenSize;
     private boolean powerOn;
 
+    public Computer() {
+        //set defaults if no inputs
+        this(8,16,new double[]{1,1});
+    }
+
     public Computer(int memoryGB, int storageGB, double[] screenSize) {
+        super(); //no arg super is called implicitly anyway to set uniqueId
         this.memoryGB = memoryGB;
         this.storageGB = storageGB;
         this.screenSize = screenSize;

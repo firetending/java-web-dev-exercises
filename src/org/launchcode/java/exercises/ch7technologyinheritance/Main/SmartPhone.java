@@ -7,6 +7,10 @@ public class SmartPhone extends Computer {
     private double[] locationGPS;
     private ArrayList<double[]> locationLog = new ArrayList<>();
 
+    public SmartPhone() {
+        this(8,16,new double[]{1,1});
+    }
+
     public SmartPhone(int memoryGB, int storageGB, double[] screenSize) {
         super(memoryGB,storageGB,screenSize);
         //location and log only set this way when initializing, otherwise use setter/addLoc
